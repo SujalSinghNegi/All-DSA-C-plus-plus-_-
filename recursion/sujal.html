@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Video Viewer</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            color: white;
+        }
+        .video-container {
+            width: 60%;
+            margin: 20px auto;
+            background: black;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        video {
+            width: 100%;
+            border-radius: 5px;
+        }
+        iframe {
+            width: 100%;
+            height: 400px;
+            border-radius: 5px;
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        button {
+            padding: 10px;
+            background: #ff5722;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #e64a19;
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Online Video Viewer</h1>
+    
+    <input type="text" id="videoURL" placeholder="Enter video URL (MP4 or YouTube)" />
+    <button onclick="loadVideo()">Load Video</button>
+
+    <div class="video-container" id="videoContainer">
+        <video id="videoPlayer" controls>
+            <source id="videoSource" src="" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <iframe id="youtubePlayer" style="display: none;"></iframe>
+    </div>
+
+    <script>
+        function loadVideo() {
+            let url = document.getElementById("videoURL").value;
+            let videoPlayer = document.getElementById("videoPlayer");
+            let youtubePlayer = document.getElementById("youtubePlayer");
+            let videoSource = document.getElementById("videoSource");
+
+            if (url.includes("youtube.com") || url.includes("youtu.be")) {
+                // YouTube Embed Link
+                let videoId = url.split("v=")[1]?.split("&")[0] || url.split("/").pop();
+                youtubePlayer.src = `https://www.youtube.com/embed/${videoId}`;
+                youtubePlayer.style.display = "block";
+                videoPlayer.style.display = "none";
+            } else {
+                // Direct MP4 Link
+                videoSource.src = url;
+                videoPlayer.load();
+                videoPlayer.style.display = "block";
+                youtubePlayer.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>

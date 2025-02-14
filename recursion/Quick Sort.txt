@@ -1,0 +1,16 @@
+Quick Sort
+
+the intuition is make a pivot any element , lets make the first element of the array
+pivot  = arr[low]
+and then put it on its correct place then
+consider 2 array , from low to pivotIndex and pivotIndex +1 to high, and apply same quick sort
+
+ places all smaller elements to left of pivot and all greater elements to right of pivot.
+
+how to find the correct place?
+make two pointers i= low, and j= high, 
+and then while loop if i found the high element and while loop -> j found the low element then the pivot , then swap arr[i] and arr[j]
+
+swapping until the i>j , i crosses the j indexes
+
+and then swap the pivot  to the arr[j], hence the j goes to the left of partition index  , and i goes to the right of it , (that's how the loop was breaked earlier) so that's why we swapped with  arr[j].
