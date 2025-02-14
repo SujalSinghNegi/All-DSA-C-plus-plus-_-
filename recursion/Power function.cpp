@@ -1,24 +1,22 @@
 // get the power of very large number
 class Solution {
-public:
-    const int mod = 1000000007;
-    long long power(long long a, long long b){
-        long long res= 1;
-        while(b>0){
-            if(b&1){
-                res= (res*a)%mod;
-                
+    public:
+        long double power(long double a, long long b){
+            if(b<0)b=-b;
+            long double res=1;
+            while(b>0){
+                if(b&1){
+                    res= res*a;
+                }
+                a= a*a;
+                b=b>>1;
             }
-            a=(a*a)%mod;
-           b= b>>1;
+            return res;
         }
-        return res%mod;
-    }
-    int countGoodNumbers(long long n) {
-        long long odd = n/2;
-        long long even= n-odd;
-        
-        long long ans = (power(4,odd) * power(5,even))%mod;
-        return (int)ans;
-    }
-};
+        double myPow(double x, int n) {
+          long double ans= power(x,n);
+          if(n<0)ans= 1/ans;
+          return ans;
+    
+        }
+    };
