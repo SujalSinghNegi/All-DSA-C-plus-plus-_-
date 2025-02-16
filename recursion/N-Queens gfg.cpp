@@ -1,4 +1,3 @@
-
 //N queens
 // this problem is that give the all posible combo of that at which position where the queen can be placed
 // so solve startin by , row 0,1,2....n-1 , as each each row, col, left dia , right dia, can have max one queen, 
@@ -12,21 +11,21 @@
 
 class Solution {
     public:
-        void backtrack(int row,  vector<vector<int>>&ans, vector<int>&ds,int n,unordered_map<int,int>&colmap,unordered_map<int,int>&summap,unordered_map<int,int>&diffmap ){
+        void backtrack(int row,  vector<vector<int>>&ans, vector<int>&ds,int n,vector<int>&colmap,vector<int>&summap,vector<int>&diffmap ){
             if(row ==n){
                 ans.push_back(ds);
                 return;
             }
             for(int j=0; j<n; j++){
-                if(!(colmap[j] || summap[row+j] || diffmap[row-j] )){
+                if(!(colmap[j] || summap[row+j] || diffmap[n+row-j] )){
                     colmap[j]=1;
                     summap[row+j]=1;
-                    diffmap[row-j]=1;
+                    diffmap[n+row-j]=1;
                     ds.push_back(j+1);
                     backtrack(row+1, ans, ds, n, colmap, summap, diffmap);
                     colmap[j]=0;
                     summap[row+j]=0;
-                    diffmap[row-j]=0;
+                    diffmap[n+row-j]=0;
                 ds.pop_back();
                 }
                     
@@ -36,7 +35,7 @@ class Solution {
           // code here
           vector<vector<int>>ans;
           vector<int>ds;
-         unordered_map<int,int>colmap, summap, diffmap;
+        vector<int>colmap(n,0), summap(2*n,0), diffmap(2*n,0); // instead of map , i used the vector as, i know the max sum can go upto, n-1 + n-1 = 2n -2, and max diff can go up to 0-(n-1)= -n+1, to (n-1)-0=  n-1, so i created , 2*n size and add the n to all , like a constant
           backtrack(0, ans, ds, n, colmap, summap, diffmap);
           return ans;
       }
