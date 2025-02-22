@@ -1,0 +1,16 @@
+morris traversal 
+inorder, preorder
+space = O(1),  time = O(n) ---- threaded binary tree
+
+		  1
+		 /.\
+	   /--- 2 . 3
+	   \   / \ .
+            \4   5  .
+		  \  .
+		   6...
+
+inorder = 4 2 5 6 1 3
+
+
+

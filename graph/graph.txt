@@ -1,0 +1,26 @@
+// graph 
+1- directed, undirected graph, 
+2- cycle - present if we start from one node and end with that node , then we say there is presenet  a cycle in graph
+3- for undirected we can go either way, but for directed , we can go as the dir is there, 
+so for directed graph carefully see if there is path making cycle or not.
+4- path - vertex cant repeat, and the adjacent vertex must have a edge
+5- Total vertex degree sum = 2 x no. of edges.
+6- InDegree= no. of incoming edges, Outdegree= no. of outgoing edges
+7- weighted graph= edge have a weight, if not then it is 1 (for no weighted graph)
+
+// create graph
+1- matrix, 2- list
+adjacency matrix- adj[n+1][n+1] (1 based indexing, the elements are starting from 1 to n)
+then the edge is given in like there is edge from , a to b, then mark adj[a][b] =adj[b][a]=1, 
+
+there can be many components of a graph
+so a traversal might miss the vertex , so you make visited array
+from 1 to n , check it is vis or not, if not then start traverse(i), till all visited
+
+
+
+
+
+
+
+
