@@ -1,0 +1,3 @@
+you can resize the vector array after defining
+vector<int>rank;
+rank.resize(n+1,0);

@@ -1,0 +1,1 @@
+mininmum spanning tree = the min sum and the edge should be n-1, and all connected, and vertex = n

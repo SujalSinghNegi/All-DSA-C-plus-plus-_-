@@ -1,0 +1,12 @@
+base condition
+recursion tree
+stack - stores the function that are not completed
+and when the fun calls it many times , or say no base condition then this stack overflows
+and then the segmentation fault come in.
+
+in recursion, you can - call call call , and when the base condition reached, then backtrack backtrack,.......
+void printN(int n){
+    if(n<=0) return;
+    printN(n-1);
+    cout<<n<<" ";
+}
