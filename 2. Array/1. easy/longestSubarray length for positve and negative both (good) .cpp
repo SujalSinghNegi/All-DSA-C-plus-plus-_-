@@ -23,6 +23,7 @@ class Solution {
   };
 
 /*
+// my approach also similar
 class Solution {
     public:
       int longestSubarray(vector<int>& arr, int k) {
