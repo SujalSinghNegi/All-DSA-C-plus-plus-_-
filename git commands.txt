@@ -1,2 +1,7 @@
 git commands
+git push origin master
+git push origin --delete branch-name
+git checkout -b branch-name
+git checkout branch-name
+
 git checkout HEAD -- "graph/disjoint set ,union by set, union by size.cpp"
