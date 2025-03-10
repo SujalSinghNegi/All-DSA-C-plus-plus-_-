@@ -1,2 +1,4 @@
-1-a-  For all num in array, find the all number greater than it in the right of it or left of it 
- b- For all num in array, find the all number smaller than it in the right of it or left of it
+
+1- the best method is the count inversion for the finding all the pairs that are greater than in the right.
+
+
