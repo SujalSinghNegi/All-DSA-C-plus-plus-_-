@@ -1,0 +1,2 @@
+
+mid = low+ (high -low)/2; // to avoid the integer overflow
