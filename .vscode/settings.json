@@ -93,6 +93,7 @@
         "thread": "cpp",
         "typeindex": "cpp",
         "typeinfo": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "floor and ceil of bs gfg": "cpp"
     }
 }
