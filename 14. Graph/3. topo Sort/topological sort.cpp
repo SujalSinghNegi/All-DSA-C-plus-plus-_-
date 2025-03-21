@@ -9,6 +9,10 @@ class Solution {
               dfs(it, s, adj, vis);
           }
       }
+      // to jo sbse end pe hoga wo push ho jayega, mtlb ki jispe se koi edge nhi jari hogi, sari edge ari hongi wo push hoga, 
+      // mtlb ki jiski indegree max hogi.
+      // or phir jb stack ko reverse karenge to topological sort mil jayega
+      // reverse mtlb hai ki stack ko kisi vector me ek ek krke push krenge
       s.push(i);
       
     }
