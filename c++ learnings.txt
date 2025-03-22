@@ -1,3 +1,6 @@
 you can resize the vector array after defining
 vector<int>rank;
 rank.resize(n+1,0);
+whenever you have see in question that you have given 'n' elements or 
+whenever you see the relationship of the elements then think of a Graph
+whenever you see the the relationship matters and the elements are dependent to execute another element first then think of the topological sort.
