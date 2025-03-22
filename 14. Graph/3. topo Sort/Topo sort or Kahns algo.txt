@@ -1,0 +1,16 @@
+
+In a question when you see something have to happen before someone is elegible then the graph is solved by toposort, 
+The toposort includes the following steps:
+1. Create a vector<int>indegree to store the in-degree of each node, vector<int>indegree
+3. Create a queue and push all nodes with indegree 0 into the queue
+2. Create a graph from the question by a vector<vector<int>>adj 
+or
+unordered_map<<data_type>, <vector <int or data_type>>adj   // this is more general approach
+then add the elements like, if a is dependent on b then add b to a's vector in the adj list 
+ex- if a is dependent on b then adj[a].pu1sh_back(b) , or index of b, or data_type b and also add a to b's indegree list
+and if the indegree of a node is 0 then push it into the queue
+then when the all operations are done.
+
+4- while the queue is not empty, pop a node from the queue, and for each neighbor (iterate on the map of adj[q.front()]) of the node, decrease its indegree by 1, and if the indegree of the neighbor becomes 0 
+then push it into the queue, and print the node, or do whatever you want to do with it or store in a vector<data_type>ans;
+5- return the vector<data_type>ans; // this is the answer, the order of the nodes in the vector is the order of the nodes in the graph.
