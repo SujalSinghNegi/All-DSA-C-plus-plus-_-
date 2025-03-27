@@ -1,0 +1,66 @@
+CREATE TABLE Customer (
+    Cust_id INT PRIMARY KEY,
+    cust_name VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE Item (
+    item_id INT PRIMARY KEY,
+    item_name VARCHAR(100) NOT NULL,
+    price INT NOT NULL
+);
+
+CREATE TABLE Sale (
+    bill_no INT PRIMARY KEY,
+    bill_date DATE NOT NULL,
+    cust_id INT,
+    item_id INT,
+    qty_sold INT NOT NULL,
+    FOREIGN KEY (cust_id) REFERENCES Customer(Custid),
+    FOREIGN KEY (item_id) REFERENCES Item(item_id)
+);
+
+
+-- Inserting Customers
+INSERT INTO Customer (Cust_id, cust_name) VALUES
+(1, 'Alice'),
+(2, 'Bob'),
+(3, 'Charlie'),
+(4, 'David'),
+(5, 'Eva'),
+(6, 'Frank'),
+(7, 'Grace'),
+(8, 'Hannah'),
+(9, 'Ian'),
+(10, 'Jane');
+
+-- Inserting Items
+INSERT INTO Item (item_id, item_name, price) VALUES
+(101, 'Laptop', 1200),
+(102, 'Smartphone', 800),
+(103, 'Tablet', 300),
+(104, 'Headphones', 150),
+(105, 'Keyboard', 80),
+(106, 'Mouse', 40),
+(107, 'Monitor', 250),
+(108, 'Printer', 200),
+(109, 'Speaker', 100),
+(110, 'USB Cable', 20);
+
+-- Inserting Sales (using current_date for today's sales)
+-- You may adjust the dates as needed.
+INSERT INTO Sale (bill_no, bill_date, cust_id, item_id, qty_sold) VALUES
+(1001, CURRENT_DATE, 1, 101, 1),
+(1002, CURRENT_DATE, 2, 102, 2),
+(1003, CURRENT_DATE, 3, 103, 3),
+(1004, CURRENT_DATE, 4, 104, 1),
+(1005, CURRENT_DATE, 5, 105, 5),
+(1006, CURRENT_DATE, 6, 106, 4),
+(1007, CURRENT_DATE, 7, 107, 2),
+(1008, CURRENT_DATE, 8, 108, 1),
+(1009, CURRENT_DATE, 9, 109, 2),
+(1010, CURRENT_DATE, 10, 110, 10);
+
+SELECT s.bill_no, s.bill_date, c.cust_name, s.item_id
+FROM Sale s
+JOIN Customer c ON s.cust_id = c.Cust_id
+WHERE s.bill_date = CURRENT_DATE;
