@@ -1,0 +1,2 @@
+note1-> find out that what is repeating and recalculating, then make a dp of that
+and to optimize the space , think that how much of the portion of a dp is used at a time in that loop
