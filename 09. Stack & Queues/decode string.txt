@@ -1,0 +1,54 @@
+class Solution {
+  public:
+    bool isInt(char ch){
+        if(ch >= '0' && ch<='9') return true;
+        return false;
+    }
+string decodedString(string &s) {
+        // code here
+    stack<int>inSt;
+    stack<char>chSt;
+    int i=0, n= s.size();
+    for(auto it= s.begin(); it!= s.end(); it++){
+     if(isInt(*it)){
+         int num= 0;
+        while(isInt(*it)){
+            num+= *it - '0';
+            num*=10;
+            ++it;
+        }
+        num/=10;
+        inSt.push(num);
+        --it;
+     }
+     else{
+         if(*it ==']'){
+             string temp="";
+             while(!chSt.empty() && chSt.top()!='['){
+                 temp+= chSt.top();
+                 chSt.pop();
+             }
+             reverse(temp.begin(), temp.end());
+             chSt.pop();
+             int cnt = inSt.top() ;
+             inSt.pop();
+             
+             while(cnt--){
+                 for(auto jt:temp){
+                     chSt.push(jt);
+                 }
+             }
+         }
+         else chSt.push(*it);
+     }
+    }
+    string ans="";
+    while(!chSt.empty()){
+     ans+=chSt.top();
+     chSt.pop();
+    }
+   reverse(ans.begin(), ans.end()) ;
+   return ans;
+   
+    }
+};
