@@ -2,7 +2,6 @@
 // upper bound is the smallest number greater than to the given number
 //arr[ind] > x 
 //  ub= upper_bound(arr.begin(), arr.end(), x) - arr.begin(); // stl function
-
 int upper_bound(vector<int> &arr, int x) {
     int n = arr.size();
     int low = 0, high = n- 1;

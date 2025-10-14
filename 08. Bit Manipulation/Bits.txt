@@ -1,0 +1,123 @@
+Basic:
+
+1. Check for n , if the i-th bit is set or not =>       ( n & (1<<i) ) != 0
+2. Check if a number is power of 2 or not  =>           n>0 && ( n & (n-1) ==0)
+3. Count the number of set bits  =>                     __popcount(n)
+------------- OR --------------------
+   while (n) {
+            n &= (n - 1);  // Turn off the rightmost set bit
+            count++;  
+        }
+
+--------------------------------------
+4. Set(or on) the rightmost 0 bit   =>                 n | (n + 1);
+// 001000 => 001001, 
+// 001011 => 001111,   // it is finding the rightmost 0 and then set it to the 1.
+
+Unset (or off)  the rightmost 1 bit =>                 n & (n-1)
+// 00110100 => 00110000
+// 00110000 => 00100000
+// 00100000 => 00000000
+	
+5. swap two number
+    a = a ^ b;
+    b = a ^ b;
+    a = a ^ b;
+
+6.          1's complement is flip all the bits    =>     ~n
+            2's complement is flip all bits + 1    =>     ~n +1
+
+7.          Shift operator ->        a<<b = a * 2^b 
+                                     a>>b = a / 2^b
+
+
+
+8. Count number of bits to be flipped to convert A to B  =>  __popcount(a ^ b); 
+
+9. 
+FIRST OF ALL , THE COMPUTER STORES THE NUMBER +VE AND -VE IN TWO DIFFERENT FORMAT, FOR THE EASY CALCULATION, ONLY OVERHEAD IS CHECKING THE MSB, 
+
+as we learned the msb checks the +ve and -ve  , here this first step is same
+but in second step we learned that after that we calculate the abs(remaing bits)
+But here is , if msb is 1, then we know it is -ve so we deal with it in 2's complement, we store and read the -ve no. in 2's complement 
+that's why we have to must check the msb first.
+
+
+//-----------------------------INPUT OUTPUT IN COMPUTER --------------------
+
+read (n) // input given in decimal
+print (n) // print in deciaml
+
+
+step1 -> check the first character, is '-' or digit ( '0'  to '9')
+step2 (a)-> if +ve, then do the decimal to binray conversion, and store it in the disk,
+    (b) is -ve then convert decimal to binary of (abs(n))
+    and then takes it 2's complement and store it in the disk.
+
+step3-> check the msb is 1 or 0.
+step 4-> (a) if the msb is 0, then convert into binary to decimal as usual 
+            (2^0 + 2^1 + .... ) and print its sum
+         (b) if the msb is 1, then convert it into 2's complement, and 
+         print that no. with a negative sign at the first.
+
+
+
+EXAMPLE _>
+## Reading Input: "Human to Computer" Translation
+    You type 19: The read function sees it's positive, converts 19 to its binary form 00010011 (in 8-bit), and stores that.
+
+    You type -19: The read function sees the - sign.
+        It takes the absolute value: 19.
+        Converts it to binary: 00010011.
+        Takes the two's complement: 11101101.
+        It stores 11101101 in memory.
+
+## Printing Output: "Computer to Human" Translation
+The print function looks at the stored bits:
+    It finds 00010011:
+        It checks the MSB: It's 0, so the number is positive.
+        It does a standard binary-to-decimal conversion: 16+2+1=19.
+        It displays 19 on the screen.
+
+    It finds 11101101:
+        It checks the MSB: It's 1, so the number is negative. The computer knows it can't just do a direct conversion.
+        It first needs to find the positive magnitude by performing the two's complement operation again:
+            Flip the bits: 00010010
+            Add 1: 00010011
+        It converts this new binary pattern (00010011) to decimal: 16+2+1=19.
+        Finally, it adds the - sign and displays -19 on the screen.
+//-------------------------------------------------------------------------
+
+10. NOT operator (~) ==  It flip all the bits, Or can say it returns (-n -1) for all +ve and -ve.
+
+    On fliping the bits, the msb also flips, we can say surely that +VE no. become -VE and 
+    -VE becomes +VE, but what would be the value ->
+
+    For a +ve no. lets say  n = 5 ==> 0000 0101
+    ~n flips all ~5 ==> 1111 1010
+    hence it is -ve so representing in 2's complement, 
+    so the value of the -ve is as discussed earlier we convert it into 2's complement with -ve sign
+    2's complement (1111 1010) ==> actual deciaml value is -ve sign with magnitude of 
+    ==> 0000 0101 +1 => 0000 0110 =>  6 with -ve sign==>> -6
+
+    hence ~5 ==> -6  ==> (-n-1) ==> (-5 -1)==> -6
+
+    For a -ve no. n = -10  ==> ( stored in 2's complement of 10) => 
+    fliping 10-> 0000 1010=> 1111 0101
+    adding 1->  1111 0101+1 => 1111 0110
+        -10 ==> 1111 0110
+    now ~(-10) == flip the bits (1111 0110) ==> 0000 1001
+    what is this no. lets check
+    msb = 0 , +ve, now apply binary to decimal, 
+    
+    Hence ~(-10) ==> 9 ==> (-n -1) ==> (-(-10)-1) ==> 10-1 ==> 9.
+    
+// ------------------------------------------------------------------------------
+
+// 11. we can conclude, not so imp but it is -> 
+        2's complement of -ve no. is   abs(n)
+        2's complement of +ve no. is -(abs(n)) 
+        
+
+11.  Give the rightmost_set_bit value (not index) =              n ^ (n & (n - 1))
+                                                                (n & -n) 
