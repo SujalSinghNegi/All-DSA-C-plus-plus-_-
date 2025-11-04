@@ -64,3 +64,29 @@ public:
         return ans;
     }
 };
+
+
+//  approach 2: caluculate no of subarrays with sum <= goal and sum <= goal-1 and take the difference
+
+
+class Solution {
+public:
+
+int subarraysLessThanGoal(vector<int>&nums, int k){
+    if(k<0) return 0;
+    int i=0, j=0, n= nums.size(), cnt=0, sum=0;
+    while(i<n){
+        sum+= nums[i];
+        while( sum > k){
+            sum-= nums[j];
+            j++;
+        }
+        cnt += i - j + 1;
+        i++;
+    }
+    return cnt;
+}
+    int numSubarraysWithSum(vector<int>& nums, int k) {
+        return subarraysLessThanGoal(nums, k)- subarraysLessThanGoal(nums, k-1);
+    }
+};

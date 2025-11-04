@@ -7,7 +7,7 @@ The toposort includes the following steps:
 or
 unordered_map<<data_type>, <vector <int or data_type>>adj   // this is more general approach
 then add the elements like, if a is dependent on b then add b to a's vector in the adj list 
-ex- if a is dependent on b then adj[a].pu1sh_back(b) , or index of b, or data_type b and also add a to b's indegree list
+ex- if a is dependent on b then adj[a].push_back(b) , or index of b, or data_type b and also add a to b's indegree list
 and if the indegree of a node is 0 then push it into the queue
 then when the all operations are done.
 

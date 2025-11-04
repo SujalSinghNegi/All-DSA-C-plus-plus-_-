@@ -1,4 +1,5 @@
 
+
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
 #include <ext/pb_ds/tree_policy.hpp>
@@ -48,17 +49,48 @@ string toBinary(long long n);
 
 
 
-void solve(){
-    
-  //  int n;  // ll  n;
-  //  cin>>n;
-  //  vi a(n);  // vll a(n); 
-  //  inputVector(a,n); 
-     
-    
-    
-    
-    
+void solve(){  
+    int n ;
+    cin>>n;
+    vi a(n+1);
+    fi(i,1,n+1){
+        cin>>a[i];
+    }
+    string s;
+    cin>>s;
+    vi col(n+1,0);
+    for(int i=1; i<=n; i++){
+        if(s[i-1] == '0'){
+            col[a[i]] = 1;
+        }
+    }
+    vi vis(n+1,0);
+    vi result(n+1,0);
+    for(int i =1; i <= n; i++){
+        if(!vis[i]){
+            int cnt =0;
+            int cur = i;
+            while(!vis[cur]){
+                vis[cur] = 1;
+                if(s[cur-1] == '0'){
+                    cnt++;
+                }
+                cur = a[cur];
+            }
+            result[i] = cnt;
+            cur = a[i];
+            while(cur != i){
+                result[cur] = cnt;
+                cur = a[cur];
+            }
+            
+            
+        }
+    }
+    for(int i =1; i <= n; i++){
+        cout<<result[i]<<" ";
+    }
+    cout<<endl;
    
    
    
