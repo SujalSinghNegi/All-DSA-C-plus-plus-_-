@@ -19,7 +19,6 @@ public:
 // 20= { 2, 2, 5}
 // function getUniquePrimeFactors(x) return list of the unique prime factors of the no. 
 // 20 = {2,5}
-
     vector<int> spf;
     vector<int> primeNumbers;
    

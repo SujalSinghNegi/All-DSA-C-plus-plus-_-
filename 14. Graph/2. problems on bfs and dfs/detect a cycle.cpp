@@ -6,7 +6,6 @@ class node{
 class Solution {
   public:
     // Function to detect cycle in an undirected graph.
-    
     bool isCycle(vector<vector<int>>& adj) {
       int n= adj.size();
        vector<bool>vis(n,0);

@@ -1,14 +1,9 @@
 /*
 Quick Formula Explanation:
-
 If n % 4 == 0: The result is n
-
 If n % 4 == 1: The result is 1
-
 If n % 4 == 2: The result is n + 1
-
 If n % 4 == 3: The result is 0
-
 
 */
 int xorUptoN(int n) {

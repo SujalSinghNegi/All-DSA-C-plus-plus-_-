@@ -14,7 +14,6 @@ class Div1{
     }
 };
 
-
 // precompute divisors for the range of number
 class DivN{
     public:
