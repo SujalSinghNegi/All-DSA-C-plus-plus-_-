@@ -81,9 +81,10 @@ void solve(){
   //  inputVector(a,n); 
   PrimeTools p(n);
   cout<<"5 is prime or not : " << p.isPrime(5)<<endl;
-  printVector(p.getPrimeFactors(20));
-  printVector(p.getUniquePrimeFactors(20));
-  printVector(p.primeNumbers);
+  printVector(p.getPrimeFactors(n));
+  printVector(p.getUniquePrimeFactors(n));
+   cout << " size of primes: " << p.primeNumbers.size() << endl;
+   //printVector(p.primeNumbers);
   
    
    
