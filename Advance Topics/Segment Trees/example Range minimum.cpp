@@ -11,18 +11,18 @@ public:
         tree.resize(4 * n + 1, 0);
         lazy.resize(4 * n + 1, 0);
     }
-   // what you want
+    // what you want
     long long merge(long long left, long long right) {
-        return left + right; 
+        return min(left , right); 
     }
 
     // CHANGE THIS: Logic to apply an update to a node
     void push(int node, int start, int end) {
         if (lazy[node] != 0) {
-            tree[node] += (end - start + 1) * lazy[node];  // (+=) for range sum
+            tree[node] += lazy[node]; // (+=) add to all the range for range sum
             if (start != end) {
                 lazy[2 * node + 1] += lazy[node];  // value is adding 
-                lazy[2 * node + 2] += lazy[node];  // value is adding 
+                lazy[2 * node + 2] += lazy[node];  // value is adding
             }
             lazy[node] = 0;
         }
@@ -59,7 +59,8 @@ public:
     long long query(int node, int start, int end, int l, int r) {
         push(node, start, end); // Always push before processing
 
-        if (start > end || start > r || end < l) return 0; // Return identity (0 for sum, INF for min)
+        // change here : 
+        if (start > end || start > r || end < l) return 4e18; // Return identity (0 for sum, INF for min)
 
         if (start >= l && end <= r) return tree[node];
 
