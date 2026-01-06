@@ -1,0 +1,5 @@
+DP Memoization to tabulation
+1. defining the subproblem / states
+2. define the base cases
+3. find out the transition
+4. final answer
