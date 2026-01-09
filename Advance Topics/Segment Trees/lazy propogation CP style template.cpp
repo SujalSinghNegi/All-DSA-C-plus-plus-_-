@@ -1,12 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class LazySegmentTree {
+class LazySeg {
     vector<long long> tree, lazy;
     int n;
 
 public:
-    LazySegmentTree(int n) {
+    LazySeg(int n) {
         this->n = n;
         tree.resize(4 * n + 1, 0);
         lazy.resize(4 * n + 1, 0);
@@ -79,7 +79,7 @@ int main() {
     vector<int> arr(n);
     for (int i = 0; i < n; i++) cin >> arr[i];
 
-    LazySegmentTree st(n);
+    LazySeg st(n);
     st.build(arr);
 
     int q; cin >> q;
