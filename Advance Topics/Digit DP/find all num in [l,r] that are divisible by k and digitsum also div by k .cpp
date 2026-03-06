@@ -68,10 +68,7 @@ cin>>a>>b>>c;
     ll res1 = rec(0,1,0,0,n1); 
         memset(dp, -1, sizeof(dp));
     ll res2 =  rec(0,1,0,0,n2); 
-   
     cout << res2 - res1 <<endl;
-    
-    
 }
 
 int main() {
