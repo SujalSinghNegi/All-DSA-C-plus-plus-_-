@@ -1,0 +1,20 @@
+Longest Valid Word with All Prefixes
+Difficulty: MediumAccuracy: 61.57%Submissions: 8K+Points: 4
+
+Given an array of strings words[], find the longest string such that every prefix of it is also present in words[]. If multiple strings have the same maximum length, return the lexicographically smallest one.
+
+If no such string is found, return an empty string.
+
+Examples:
+
+Input: words[] = ["p", "pr", "pro", "probl", "problem", "pros", "process", "processor"]
+Output: "pros" 
+Explanation: "pros" is the longest word with all prefixes ("p", "pr", "pro", "pros") present.
+
+Input: words[] = ["geeks", "gfg", "geeksforgeeks"]
+Output: ""
+Explanation: No valid strings for all their prefixes present in the words array.
+
+Constraints:
+1 <= words.size <= 1000
+1 <= words[i].size <= 100
